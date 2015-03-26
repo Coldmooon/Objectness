@@ -54,7 +54,7 @@ DataSetVOC::~DataSetVOC(void)
 void DataSetVOC::loadAnnotations()
 {
 	gtTrainBoxes.resize(trainNum);
-	gtTrainClsIdx.resize(trainNum);
+	gtTrainClsIdx.resize(trainNum); // each bound box is corresponding to a classID
 	for (int i = 0; i < trainNum; i++)
 		if (!loadBBoxes(trainSet[i], gtTrainBoxes[i], gtTrainClsIdx[i]))
 			return;
