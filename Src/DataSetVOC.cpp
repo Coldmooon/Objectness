@@ -17,7 +17,7 @@ DataSetVOC::DataSetVOC(CStr &_wkDir)
 	classNames = CmFile::loadStrList(wkDir + "ImageSets/Main/class.txt");
 
 	// testSet.insert(testSet.end(), trainSet.begin(), trainSet.end());	
-	// testSet.resize(min(1000, (int)testSet.size()));
+    testSet.resize(min(10, (int)testSet.size()));
 
 	trainNum = trainSet.size();
 	testNum = testSet.size();

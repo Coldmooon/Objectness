@@ -91,8 +91,8 @@ void Objectness::predictBBoxSI(CMat &img3u, ValStructVec<float, Vec4i> &valBoxes
         // 这里会把图像缩放到固定大小，如论文中所说。
 		resize(img3u, im3u, Size(cvRound(_W*imgW*1.0/width), cvRound(_W*imgH*1.0/height)));
 		gradientMag(im3u, mag1u); // 每个元素用一个字节存储。
-        cout << "mag1u size: (" << mag1u.size() << ")" << ": " << endl;
-        cout << mag1u << endl;
+//        cout << "mag1u size: (" << mag1u.size() << ")" << ": " << endl;
+//        cout << mag1u << endl;
         //        Mat magforimg3u;
         //        gradientMag(img3u, magforimg3u);
         //        Mat forshow = img3u;
@@ -139,7 +139,7 @@ void Objectness::predictBBoxSI(CMat &img3u, ValStructVec<float, Vec4i> &valBoxes
         //        imshow("img3u", forshow);
         //        waitKey(0);
 	}
-    cout << endl;
+//    cout << endl;
 	//exit(0);
 }
 
@@ -163,11 +163,11 @@ void Objectness::getObjBndBoxes(CMat &img3u, ValStructVec<float, Vec4i> &valBoxe
 	predictBBoxSI(img3u, valBoxes, sz, numDetPerSize, false); // get each box'score.
 	
     // for test:
-    Mat forshow = img3u;
-    for (int i = 0; i < valBoxes.structVals.size(); ++i)
-        rectangle(forshow, Rect(valBoxes[i].val[0],valBoxes[i].val[1],valBoxes[i].val[2],valBoxes[i].val[3]), cv::Scalar(255,255,0), 2);
-    imshow("img3u", forshow);
-    waitKey(0);
+//    Mat forshow = img3u;
+//    for (int i = 0; i < valBoxes.structVals.size(); ++i)
+//        rectangle(forshow, Rect(valBoxes[i].val[0],valBoxes[i].val[1],valBoxes[i].val[2],valBoxes[i].val[3]), cv::Scalar(255,255,0), 2);
+//    imshow("img3u", forshow);
+//    waitKey(0);
     
     predictBBoxSII(valBoxes, sz); // sort valBoxes.valldxes by descanding.
 	return;
